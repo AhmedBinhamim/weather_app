@@ -2,6 +2,9 @@
 
 Overview: The Flutter Weather App provides real-time weather updates, forecasts, and alerts based on your location. With a user-friendly interface, it offers a seamless experience for checking current weather conditions and receiving notifications about significant weather changes.
 
+![Weather App Screenshot](Weather App.jpg)
+
+
 # Features:
 
 🌅 Dynamic Greetings: Displays a personalized greeting based on the time of day (morning, afternoon, evening).
