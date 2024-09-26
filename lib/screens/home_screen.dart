@@ -7,11 +7,24 @@ import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String getGreeting() {
+    final hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning';
+    } else if (hour < 17) {
+      return 'Good Afternoon';
+    } else {
+      return 'Good Evening';
+    }
+  }
+
   Widget getWeatherIcon(int code) {
     switch (code) {
       case >= 200 && < 300:
@@ -42,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         systemOverlayStyle:
-            SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
+            const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
@@ -96,15 +109,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             '📍${state.weather.areaName}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w300,
                             ),
                           ),
                           const SizedBox(height: 8),
-                          const Text(
-                            'Good Morning',
-                            style: TextStyle(
+                          Text(
+                            getGreeting(),
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
@@ -114,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Center(
                             child: Text(
                               '${state.weather.temperature!.celsius!.round()}°C ',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 55,
                                   fontWeight: FontWeight.w600),
@@ -123,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Center(
                             child: Text(
                               state.weather.weatherMain!.toUpperCase(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
                                   fontWeight: FontWeight.w500),
@@ -156,18 +169,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Sunrise',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
-                                      SizedBox(height: 3),
+                                      const SizedBox(height: 3),
                                       Text(
                                         DateFormat()
                                             .add_jm()
                                             .format(state.weather.sunrise!),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w700),
                                       )
@@ -227,16 +240,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Temp Max',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
-                                      SizedBox(height: 3),
+                                      const SizedBox(height: 3),
                                       Text(
                                         "${state.weather.tempMax!.celsius!.round().toString()}°C",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w700),
                                       )
@@ -255,16 +268,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Temp Min',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
-                                      SizedBox(height: 3),
+                                      const SizedBox(height: 3),
                                       Text(
                                         "${state.weather.tempMin!.celsius!.round().toString()}°C",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w700),
                                       )
