@@ -20,9 +20,9 @@ Overview: The Flutter Weather App provides real-time weather updates, forecasts,
 # Technologies Used:
 
 - Flutter for building the UI and handling user interactions.
-- 
+  
 - Firebase for backend services, including authentication and push notifications.
-- 
+  
 - Weather API for fetching real-time weather data.
   
 # Getting Started:
